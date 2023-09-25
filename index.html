@@ -33,6 +33,32 @@
     </ul>
 
     <script>
+        const myList = document.querySelector("ul");
+        const itemName = document.querySelector("input");
+        const addButton = document.querySelector("button");
+
+        addButton.addEventListener("click", () => {
+            const myItem = itemName.value;
+            itemName.value = "";
+
+            const listItem = document.createElement("li");
+            const listText = document.createElement("span");
+            const listButton = document.createElement("button");
+
+            listItem.appendChild(listText);
+            listText.textContent = myItem;
+            listItem.appendChild(listButton);
+            listButton.textContent = "Delete";
+            myList.appendChild(listItem);
+
+            listButton.addEventListener("click", () => {
+                myList.removeChild(listItem);
+            });
+
+            itemName.focus();
+
+        });
+
 
     </script>
   </body>
